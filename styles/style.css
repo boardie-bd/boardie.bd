@@ -1,0 +1,39 @@
+.hero {
+  background: url('https://via.placeholder.com/1500x600') center/cover no-repeat;
+  color: rgb(33, 31, 31);
+  padding: 15px 0;
+  text-align: center;
+}
+.product-img {
+  height: 220px;
+  object-fit: contain;
+  width: 100%;
+  background-color: #fff;
+  padding-top: 5px;
+}
+
+image-gallery { position: relative; }
+.image-gallery img { width: 100%; display: block; }
+.image-gallery button {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(0,0,0,0.4); color: white; border: none; padding: 4px;
+}
+.prev { left: 5px; }
+.next { right: 5px; }
+
+.navbar {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.navbar-brand img {
+  height: 70px; /* adjust as needed */
+  width: auto;
+  margin-right: 3px; /* reduces space between image and text */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 2px; /* ensures tight spacing */
+}

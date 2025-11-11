@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boardie</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#">
+        <img src="images/logo.png">Boardie </a>
+    </div>
+  </nav>
+<!-- hero section -->
+  <section class="hero d-flex align-items-center justify-content-center">
+    <div class="container text-center">
+      <img src="images/boardie-hero-sec-img1.jpg" alt="boardie poster" class="img-fluid" style="width: 100%; height: 100%; object-fit: cover; margin-top: 15px;">
+      <h1 class="display-4 fw-bold">Buy Quality Board Games in Bangladesh</h1>
+      <p class="lead">Best Quality. Best prices. Trusted by many.</p>
+    </div>
+  </section>
+  <section id="products" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Our Collections</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="image-gallery">
+              <img id= "root-img" src="images/products/root/root img 1.jpg" class="product-img" />
+              <button class="prev">←</button>
+              <button class="next">→</button>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Root</h5>
+              <p class="card-text">This game is playable by 2-6 players.Push your luck to build the best ecosystem in the jungle.</p>
+              <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/root.html'">Details</button>
+              <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400" class="product-img" />
+            <div class="card-body">
+              <h5 class="card-title">Product Name</h5>
+              <p class="card-text">Short product description.</p>
+              <button class="btn btn-primary w-100">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+              <img src="https://via.placeholder.com/400" class="product-img" />
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Short product description.</p>
+                <button class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="https://via.placeholder.com/400" class="product-img" />
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Short product description.</p>
+                <button class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img src="https://via.placeholder.com/400" class="product-img" />
+              <div class="card-body">
+                <h5 class="card-title">Product Name</h5>
+                <p class="card-text">Short product description.</p>
+                <button class="btn btn-primary w-100">Buy Now</button>
+              </div>
+            </div>
+          </div>
+
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400" class="product-img" />
+            <div class="card-body">
+              <h5 class="card-title">Product Name</h5>
+              <p class="card-text">Short product description.</p>
+              <button class="btn btn-primary w-100">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-light py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3">Why Choose Us?</h2>
+      <p class="lead">High Quality • Fast Delivery • Best Support</p>
+    </div>
+  </section>
+
+  <footer class="text-center py-4">
+    <p class="mb-0">© Boardie. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const images = ['root img 1.jpg', 'root-img-2.jpeg', 'root-img-3.jpeg'];
+    let index = 0;
+    
+    const rootImage = document.getElementById('root-img');
+    document.querySelector('.prev').onclick = () => {
+      index = (index - 1 + images.length) % images.length;
+      rootImage.src = 'images/products/root/'+images[index];
+    };
+    document.querySelector('.next').onclick = () => {
+      index = (index + 1) % images.length;
+      rootImage.src = 'images/products/root/'+images[index];
+    };
+    </script>
+</body>
+</html>
