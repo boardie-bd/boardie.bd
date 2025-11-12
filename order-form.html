@@ -2,55 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checkout</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+  <title>Boardie Order Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-
-    iframe {
-  width: 100%;
-  height: 900px;
-  border: none;
-}
-
-.navbar {
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
-}
-
-.navbar-brand img {
-  height: 70px; /* adjust as needed */
-  width: auto;
-  margin-right: 3px; /* reduces space between image and text */
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* ensures tight spacing */
-}
+    .thankyou {
+      display: none;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .thankyou h2 {
+      font-weight: bold;
+      color: #28a745;
+    }
+    .thankyou p {
+      font-size: 1.2rem;
+    }
   </style>
+
+  <script>
+    async function submitForm(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('name').value,
+        mobile: document.getElementById('mobile').value,
+        email: document.getElementById('email').value,
+        address: document.getElementById('address').value,
+        product1: document.getElementById('product1').value,
+        quantity1: document.getElementById('quantity1').value,
+        product2: document.getElementById('product2').value,
+        quantity2: document.getElementById('quantity2').value,
+        total: document.getElementById('total').textContent
+      };
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbwpuK5nNUGaA--nwaiUXtZ5n6W6W9-saw_M8Kq0wLXy6OhYFVP5ip891VgIF47FpZjY/exec";
+
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          document.getElementById('order-section').style.display = 'none';
+          document.getElementById('thankyou-section').style.display = 'block';
+        } else {
+          alert('⚠️ There was a problem submitting your order. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('❌ Network error. Please check your connection and try again.');
+      }
+    }
+
+    function updateTotal() {
+      const q1 = Number(document.getElementById('quantity1').value || 0);
+      const q2 = Number(document.getElementById('quantity2').value || 0);
+      const total = q1 * 1200 + q2 * 1500; // example prices
+      document.getElementById('total').textContent = total;
+    }
+  </script>
 </head>
 
 <body class="bg-light">
+  <div class="container py-5">
+    <div id="order-section">
+      <h2 class="mb-4 text-center fw-bold">🛒 Boardie Order Form</h2>
 
-  <!-- navbar -->
- <!-- navbar -->
- <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold fs-4" href="#">
-      <img src="images/logo.png">Boardie </a>
+      <form id="order-form" onsubmit="submitForm(event)" class="bg-white p-4 rounded shadow">
+        <!-- Customer Info -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Mobile</label>
+            <input type="text" id="mobile" class="form-control" placeholder="e.g. 017XXXXXXXX" required>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" id="email" class="form-control" placeholder="you@example.com">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Delivery Address</label>
+            <input type="text" id="address" class="form-control" placeholder="Your Delivery Address" required>
+          </div>
+        </div>
+
+        <hr>
+        <h5 class="fw-bold mb-3">Select Products</h5>
+
+        <!-- Product 1 -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Product 1</label>
+            <select id="product1" class="form-select" onchange="updateTotal()">
+              <option value="Board Game A">Board Game A (৳1200)</option>
+              <option value="Board Game B">Board Game B (৳1500)</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Quantity</label>
+            <input type="number" id="quantity1" min="0" value="1" class="form-control" oninput="updateTotal()">
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label">Product 2</label>
+            <select id="product2" class="form-select" onchange="updateTotal()">
+              <option value="Board Game C">Board Game C (৳1000)</option>
+              <option value="Board Game D">Board Game D (৳1300)</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Quantity</label>
+            <input type="number" id="quantity2" min="0" value="1" class="form-control" oninput="updateTotal()">
+          </div>
+        </div>
+
+        <!-- Total -->
+        <div class="text-end mb-3">
+          <h5>Total: ৳<span id="total">0</span></h5>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 fs-5">Submit Order</button>
+      </form>
+    </div>
+
+    <!-- Thank You Page -->
+    <div id="thankyou-section" class="thankyou">
+      <h2>🎉 Thank You for Your Order!</h2>
+      <p>We’ve received your order details. Our team will contact you soon for confirmation.</p>
+      <a href="" class="btn btn-primary mt-3">Place Another Order</a>
+    </div>
   </div>
-</nav>
-
-<img src ="images/checkout-page-banner1.png" alt ="" class="image;" style ="display: block;
-margin-left: auto;
-margin-right: auto;
-height: 350px;
-width: auto;
-margin-top: 10px;"> 
-
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdvB2wBPb1MQ9L2xQ_H40hTKJ0f2Xio76neS8RHXoibKJ3a9g/viewform?embedded=true" width="640" height="1959" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
 </body>
+</html>
