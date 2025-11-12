@@ -19,27 +19,78 @@
     .thankyou p {
       font-size: 1.2rem;
     }
+    .bkash-section {
+      display: none;
+      margin-top: 10px;
+    }
   </style>
 
   <script>
+    function updateTotal() {
+      const p1 = document.getElementById('product1');
+      const p2 = document.getElementById('product2');
+      const p3 = document.getElementById('product3');
+
+      const q1 = Number(document.getElementById('quantity1').value || 0);
+      const q2 = Number(document.getElementById('quantity2').value || 0);
+      const q3 = Number(document.getElementById('quantity3').value || 0);
+
+      const total =
+        q1 * Number(p1.value || 0) +
+        q2 * Number(p2.value || 0) +
+        q3 * Number(p3.value || 0);
+
+      document.getElementById('total').textContent = total;
+    }
+
+    function togglePaymentFields() {
+      const paymentMethod = document.getElementById('payment-method').value;
+      const bkashSection = document.getElementById('bkash-section');
+      const transactionInput = document.getElementById('transaction-id');
+
+      if(paymentMethod === 'Bkash') {
+        bkashSection.style.display = 'block';
+        transactionInput.required = true;
+      } else {
+        bkashSection.style.display = 'none';
+        transactionInput.required = false;
+        transactionInput.value = '';
+      }
+    }
+
     async function submitForm(e) {
       e.preventDefault();
+
+      const p1 = document.getElementById('product1');
+      const p2 = document.getElementById('product2');
+      const p3 = document.getElementById('product3');
+
+      const paymentMethod = document.getElementById('payment-method').value;
+      const transactionID = document.getElementById('transaction-id').value;
+
+      // If Bkash is selected, make sure transaction ID is filled
+      if(paymentMethod === 'Bkash' && transactionID.trim() === '') {
+        alert('Please enter the Bkash transaction ID.');
+        return;
+      }
 
       const data = {
         name: document.getElementById('name').value,
         mobile: document.getElementById('mobile').value,
         email: document.getElementById('email').value,
         address: document.getElementById('address').value,
-        product1: document.getElementById('product1').text,
+        product1: p1.options[p1.selectedIndex].text,
         quantity1: document.getElementById('quantity1').value,
-        product2: document.getElementById('product2').text,
+        product2: p2.options[p2.selectedIndex].text,
         quantity2: document.getElementById('quantity2').value,
-        product3: document.getElementById('product3').text,
+        product3: p3.options[p3.selectedIndex].text,
         quantity3: document.getElementById('quantity3').value,
-        total: document.getElementById('total').textContent
+        total: document.getElementById('total').textContent,
+        paymentMethod: paymentMethod,
+        transactionID: transactionID
       };
 
-      const scriptURL = "https://script.google.com/macros/s/AKfycbwpuK5nNUGaA--nwaiUXtZ5n6W6W9-saw_M8Kq0wLXy6OhYFVP5ip891VgIF47FpZjY/exec";
+      const scriptURL = "YOUR_GOOGLE_SCRIPT_URL_HERE"; // Replace with your Google Apps Script URL
 
       try {
         const response = await fetch(scriptURL, {
@@ -57,17 +108,6 @@
         console.error('Error:', error);
         alert('❌ Network error. Please check your connection and try again.');
       }
-    }
-
-    function updateTotal() {
-      const price1 = Number(document.getElementById('product1').value || 0);
-      const price2 = Number(document.getElementById('product2').value || 0);
-      const price3 =Number(document.getElementById('product3').value || 0);
-      const q1 = Number(document.getElementById('quantity1').value || 0);
-      const q2 = Number(document.getElementById('quantity2').value || 0);
-      const q3 = Number(document.getElementById('quantity3').value || 0);
-      const total = (q1 * price1) + (q2 * price2) + (q3 * price3); // example prices
-      document.getElementById('total').textContent = total;
     }
   </script>
 </head>
@@ -111,7 +151,7 @@
             <select id="product1" class="form-select" onchange="updateTotal()">
               <option value="3670">Root (৳3670)</option>
               <option value="3340">Brass: Birmingham (৳3340)</option>
-              <option value="3560s">Harmonies (৳3560)</option>
+              <option value="3560">Harmonies (৳3560)</option>
               <option value="4430">Everdell (৳4430)</option>
               <option value="2870">Azul (৳2870)</option>
               <option value="3640">7 Wonders (৳3640)</option>
@@ -132,9 +172,9 @@
           <div class="col-md-6">
             <label class="form-label">Choose 2nd Game</label>
             <select id="product2" class="form-select" onchange="updateTotal()">
-               <option value="3670">Root (৳3670)</option>
+              <option value="3670">Root (৳3670)</option>
               <option value="3340">Brass: Birmingham (৳3340)</option>
-              <option value="3560s">Harmonies (৳3560)</option>
+              <option value="3560">Harmonies (৳3560)</option>
               <option value="4430">Everdell (৳4430)</option>
               <option value="2870">Azul (৳2870)</option>
               <option value="3640">7 Wonders (৳3640)</option>
@@ -155,9 +195,9 @@
           <div class="col-md-6">
             <label class="form-label">Choose 3rd Game</label>
             <select id="product3" class="form-select" onchange="updateTotal()">
-             <option value="3670">Root (৳3670)</option>
+              <option value="3670">Root (৳3670)</option>
               <option value="3340">Brass: Birmingham (৳3340)</option>
-              <option value="3560s">Harmonies (৳3560)</option>
+              <option value="3560">Harmonies (৳3560)</option>
               <option value="4430">Everdell (৳4430)</option>
               <option value="2870">Azul (৳2870)</option>
               <option value="3640">7 Wonders (৳3640)</option>
@@ -165,7 +205,7 @@
               <option value="3560">Pandemic (৳3560)</option>
               <option value="2350">Splendor (৳2350)</option>
               <option value="1440">Here to Slay (৳1440)</option>
-               </select>
+            </select>
           </div>
           <div class="col-md-6">
             <label class="form-label">Quantity</label>
@@ -178,7 +218,23 @@
           <h5>Total: ৳<span id="total">0</span></h5>
         </div>
 
-        <button type="submit" class="btn btn-success w-100 fs-5">Submit Order</button>
+        <!-- Payment Method -->
+        <div class="mb-3">
+          <label class="form-label">Payment Method</label>
+          <select id="payment-method" class="form-select" onchange="togglePaymentFields()" required>
+            <option value="">Select Payment Method</option>
+            <option value="Bkash">Bkash</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+          </select>
+        </div>
+
+        <!-- Bkash Transaction -->
+        <div id="bkash-section" class="bkash-section">
+          <p>Send Money to Bkash Account: <strong>01784597298</strong>. After sending money, fill up the Bkash transaction ID:</p>
+          <input type="text" id="transaction-id" class="form-control" placeholder="Enter Bkash Transaction ID">
+        </div>
+
+        <button type="submit" class="btn btn-success w-100 fs-5 mt-3">Submit Order</button>
       </form>
     </div>
 
