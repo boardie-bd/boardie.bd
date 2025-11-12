@@ -58,9 +58,13 @@
     }
 
     function updateTotal() {
+      const price1 = Number(document.getElementById('product1').value || 0);
+      const price2 = Number(document.getElementById('product2').value || 0);
+      const price3 =Number(document.getElementById('product3').value || 0);
       const q1 = Number(document.getElementById('quantity1').value || 0);
       const q2 = Number(document.getElementById('quantity2').value || 0);
-      const total = q1 * 1200 + q2 * 1500; // example prices
+      const q3 = Number(document.getElementById('quantity3').value || 0);
+      const total = q1 * price1 + q2 * price2 + q3 * price3; // example prices
       document.getElementById('total').textContent = total;
     }
   </script>
@@ -103,16 +107,16 @@
           <div class="col-md-6">
             <label class="form-label">Choose Game</label>
             <select id="product1" class="form-select" onchange="updateTotal()">
-              <option value="Root">Root (৳3670)</option>
-              <option value="Brass">Brass: Birmingham (৳3340)</option>
-              <option value="Harmonies">Harmonies (৳3560)</option>
-              <option value="Everdell">Everdell (৳4430)</option>
-              <option value="Azul">Azul (৳2870)</option>
-              <option value="7 Wonders">7 Wonders (৳3640)</option>
-              <option value="Virus 1">Virus 1 (৳830)</option>
-              <option value="Pandemic">Pandemic (৳3560)</option>
-              <option value="Splendor">Splendor (৳2350)</option>
-              <option value="Here to Slay">Here to Slay (৳1440)</option>
+              <option value="3670">Root (৳3670)</option>
+              <option value="3340">Brass: Birmingham (৳3340)</option>
+              <option value="3560s">Harmonies (৳3560)</option>
+              <option value="4430">Everdell (৳4430)</option>
+              <option value="2870">Azul (৳2870)</option>
+              <option value="3640">7 Wonders (৳3640)</option>
+              <option value="830">Virus 1 (৳830)</option>
+              <option value="3560">Pandemic (৳3560)</option>
+              <option value="2350">Splendor (৳2350)</option>
+              <option value="1440">Here to Slay (৳1440)</option>
             </select>
           </div>
           <div class="col-md-6">
@@ -126,16 +130,16 @@
           <div class="col-md-6">
             <label class="form-label">Choose Game</label>
             <select id="product2" class="form-select" onchange="updateTotal()">
-               <option value="Root">Root (৳3670)</option>
-              <option value="Brass">Brass: Birmingham (৳3340)</option>
-              <option value="Harmonies">Harmonies (৳3560)</option>
-              <option value="Everdell">Everdell (৳4430)</option>
-              <option value="Azul">Azul (৳2870)</option>
-              <option value="7 Wonders">7 Wonders (৳3640)</option>
-              <option value="Virus 1">Virus 1 (৳830)</option>
-              <option value="Pandemic">Pandemic (৳3560)</option>
-              <option value="Splendor">Splendor (৳2350)</option>
-              <option value="Here to Slay">Here to Slay (৳1440)</option>
+               <option value="3670">Root (৳3670)</option>
+              <option value="3340">Brass: Birmingham (৳3340)</option>
+              <option value="3560s">Harmonies (৳3560)</option>
+              <option value="4430">Everdell (৳4430)</option>
+              <option value="2870">Azul (৳2870)</option>
+              <option value="3640">7 Wonders (৳3640)</option>
+              <option value="830">Virus 1 (৳830)</option>
+              <option value="3560">Pandemic (৳3560)</option>
+              <option value="2350">Splendor (৳2350)</option>
+              <option value="1440">Here to Slay (৳1440)</option>
             </select>
           </div>
           <div class="col-md-6">
@@ -148,22 +152,20 @@
         <div class="row g-3 mb-3">
           <div class="col-md-6">
             <label class="form-label">Choose Game</label>
-            <select id="product1" class="form-select" onchange="updateTotal()">
-              <option value="Root">Root (৳3670)</option>
-              <option value="Brass">Brass: Birmingham (৳3340)</option>
-              <option value="Harmonies">Harmonies (৳3560)</option>
-              <option value="Everdell">Everdell (৳4430)</option>
-              <option value="Azul">Azul (৳2870)</option>
-              <option value="7 Wonders">7 Wonders (৳3640)</option>
-              <option value="Virus 1">Virus 1 (৳830)</option>
-              <option value="Pandemic">Pandemic (৳3560)</option>
-              <option value="Splendor">Splendor (৳2350)</option>
-              <option value="Here to Slay">Here to Slay (৳1440)</option>
-            </select>
+             <option value="3670">Root (৳3670)</option>
+              <option value="3340">Brass: Birmingham (৳3340)</option>
+              <option value="3560s">Harmonies (৳3560)</option>
+              <option value="4430">Everdell (৳4430)</option>
+              <option value="2870">Azul (৳2870)</option>
+              <option value="3640">7 Wonders (৳3640)</option>
+              <option value="830">Virus 1 (৳830)</option>
+              <option value="3560">Pandemic (৳3560)</option>
+              <option value="2350">Splendor (৳2350)</option>
+              <option value="1440">Here to Slay (৳1440)</option>
           </div>
           <div class="col-md-6">
             <label class="form-label">Quantity</label>
-            <input type="number" id="quantity1" min="0" value="1" class="form-control" oninput="updateTotal()">
+            <input type="number" id="quantity3" min="0" value="1" class="form-control" oninput="updateTotal()">
           </div>
         </div>
 
