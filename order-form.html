@@ -64,7 +64,7 @@
       const q1 = Number(document.getElementById('quantity1').value || 0);
       const q2 = Number(document.getElementById('quantity2').value || 0);
       const q3 = Number(document.getElementById('quantity3').value || 0);
-      const total = q1 * price1 + q2 * price2 + q3 * price3; // example prices
+      const total = (q1 * price1) + (q2 * price2) + (q3 * price3); // example prices
       document.getElementById('total').textContent = total;
     }
   </script>
@@ -152,7 +152,7 @@
         <div class="row g-3 mb-3">
           <div class="col-md-6">
             <label class="form-label">Choose 3rd Game</label>
-            <select id="product2" class="form-select" onchange="updateTotal()">
+            <select id="product3" class="form-select" onchange="updateTotal()">
              <option value="3670">Root (৳3670)</option>
               <option value="3340">Brass: Birmingham (৳3340)</option>
               <option value="3560s">Harmonies (৳3560)</option>
