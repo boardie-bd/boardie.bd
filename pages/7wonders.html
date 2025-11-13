@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7 Wonders – Build Your Civilization, Shape History</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f9f6f1;
+      color: #2c1e14;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.navbar-brand img {
+  height: 70px; /* adjust as needed */
+  width: auto;
+  margin-right: 3px; /* reduces space between image and text */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* ensures tight spacing */
+}
+
+
+    .product-header {
+      text-align: center;
+      padding: 20px 20px 20px;
+      background:
+        linear-gradient(rgba(30, 15, 0, 0.6), rgba(20, 10, 0, 0.6)),
+        url('https://cf.geekdo-images.com/original/img/xwaqZlZ2hGXt1dVqlPCq8oVD0uE=/0x0/pic4863762.jpg') center/cover no-repeat;
+      color: #fdf5e6;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .product-header h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .product-header p {
+      font-size: 1.2rem;
+      color: #f5deb3;
+    }
+
+    /* Carousel */
+    .carousel-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+      padding: 15px;
+    }
+
+    .carousel {
+      max-width: 600px;
+      margin: 50px auto;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .description {
+      max-width: 850px;
+      margin: 60px auto;
+      background-color: #fffaf3;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .description h2, .description h3 {
+      color: #7b3f00;
+      font-weight: 700;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .feature-list li::before {
+      content: "🏛️";
+      color: #b8860b;
+      margin-right: 10px;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 40px auto 0;
+      padding: 15px 0;
+      font-size: 1.25rem;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #b8860b, #d4af37);
+      color: #fff;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(184, 134, 11, 0.4);
+    }
+
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #d4af37, #ffd700);
+      transform: scale(1.07);
+      box-shadow: 0 8px 18px rgba(184, 134, 11, 0.6);
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      background-color: #efe4c9;
+      color: #3e2b14;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!--navbar-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4" href="#">
+        <img src="../images/logo.png">Boardie </a>
+    </div>
+  </nav>
+
+  <header class="product-header">
+    <h1>7 Wonders</h1>
+    <p>Draft Cards. Build Your City. Shape History. • 3–7 Players • 30 Minutes</p>
+  </header>
+
+  <!-- Carousel Gallery -->
+  <div id="wondersCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../images/products/7 wonders/7-wonders-img-1.png" alt="7 Wonders Box Art">
+      </div>
+      <div class="carousel-item">
+        <img src="../images/products/7 wonders/7-wonders-img-2.jpg" alt="7 Wonders Board Game Layout">
+      </div>
+      <div class="carousel-item">
+        <img src="../images/products/7 wonders/7-wonders-img-3.jpg" alt="Players Building Civilizations in 7 Wonders">
+      </div>
+      <div class="carousel-item">
+        <img src="../images/products/7 wonders/7-wonders-img-4.jpg" alt="Wonders of the Ancient World Cards">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#wondersCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#wondersCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <section class="description">
+    <h2>Game Overview</h2>
+    <p>
+      <strong>7 Wonders</strong> takes you through three ages of progress, trade, and conquest.  
+      As the leader of an ancient civilization, you’ll craft structures, develop technologies, and erect one of the great Wonders of the world — all while balancing military power, commerce, and culture.
+    </p>
+
+    <h3>Why You’ll Love This Game</h3>
+    <ul class="feature-list">
+      <li><strong>Epic civilization building</strong> – lead your people from humble beginnings to legendary greatness.</li>
+      <li><strong>Fast-paced card drafting</strong> – play simultaneously, no waiting between turns.</li>
+      <li><strong>Infinite strategies</strong> – adapt your path through science, economy, or might.</li>
+      <li><strong>Visually rich</strong> – every card feels like a piece of ancient art.</li>
+      <li><strong>Award-winning design</strong> – over 30 major international awards including the Kennerspiel des Jahres.</li>
+    </ul>
+
+    <h3>What’s in the Box</h3>
+    <ul class="feature-list">
+      <li>7 double-sided Wonder boards</li>
+      <li>150 beautifully illustrated playing cards</li>
+      <li>Money tokens and military conflict markers</li>
+      <li>Comprehensive rulebook and quick reference guide</li>
+    </ul>
+
+    <h3>How to Play (in short)</h3>
+    <p>
+      • Draft cards to build structures and advance your civilization.<br>
+      • Strengthen your economy, military, and scientific achievements.<br>
+      • Each age offers powerful new options — choose wisely!<br>
+      • After three ages, the most glorious civilization wins.
+    </p>
+
+    <h3>Game Details</h3>
+    <p>
+      <strong>Players:</strong> 3–7 | <strong>Age:</strong> 10+ | <strong>Play Time:</strong> 30 minutes | <strong>Complexity:</strong> Medium Strategy
+    </p>
+
+    <h3>Perfect For</h3>
+    <ul class="feature-list">
+      <li>Fans of strategy and civilization games</li>
+      <li>Groups who love fast, simultaneous play</li>
+      <li>Players who enjoy discovering new strategies each time</li>
+      <li>Game nights that crave grandeur and replayability</li>
+    </ul>
+
+    <h3>Don’t Miss Out</h3>
+    <p>
+      Rise above the ages, command mighty cities, and carve your name into history with <strong>7 Wonders</strong>.  
+      Easy to learn, endlessly replayable, and deeply strategic — this is your chance to build an empire that will never be forgotten.
+    </p>
+
+    <button class="btn buy-btn" onclick="window.location.href='../order-form.html'">Buy Now</button>
+  </section>
+
+  <footer>
+    <p>© Boardie. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
