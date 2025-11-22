@@ -38,14 +38,14 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">Root</h5>
-              <h6> ৳3199 </h6>
+              <h6> ৳4880 </h6>
               <p class="card-text">Four Clans, Four unique play styles. Race for victory points while battling your friends.</p>
               <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/root.html'">Details</button>
               <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
             </div>
           </div>
         </div>
- <!--product 2-->
+ <!--product 2: 7 Wonders-->
  <div class="col-md-4">
   <div class="card">
     <div class="image-gallery">
@@ -55,8 +55,8 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">7 Wonders</h5>
-      <h6> ৳2999 </h6>
-      <p class="card-text"> This game is playable by 2-6 players. Build like the emperors in this epic game.</p>
+      <h6> ৳4880 </h6>
+      <p class="card-text"> Build like the emperors in this mythic game.</p>
       <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/7wonders.html'">Details</button>
       <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
     </div>
@@ -72,7 +72,7 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Brass: Birmingham</h5>
-      <h6> ৳3399 </h6>
+      <h6> ৳4870 </h6>
       <p class="card-text"> Compete with your friends to be the best Industrialist in the 1800 era.</p>
       <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/brass Birmingham.html'">Details</button>
       <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
@@ -83,20 +83,20 @@
 <div class="col-md-4">
   <div class="card">
     <div class="image-gallery">
-      <img id= "root-img" src="images/products/root/root img 1.jpg" class="product-img" />
-      <button class="prev">←</button>
-      <button class="next">→</button>
+      <img id= "harmonies-img" src="images/products/harmonies/harmonies-1.jpg" class="product-img" />
+      <button class="prev" id="prev4">←</button>
+      <button class="next" id="next4">→</button>
     </div>
     <div class="card-body">
       <h5 class="card-title">Harmonies</h5>
-      <h6> ৳3299 </h6>
+      <h6> ৳3920 </h6>
       <p class="card-text">Build a serene, peaceful jungle for your animals.</p>
       <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/root.html'">Details</button>
       <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
     </div>
   </div>
 </div>
-<!--product 5-->
+<!--product 5: Azul-->
 <div class="col-md-4">
   <div class="card">
     <div class="image-gallery">
@@ -106,7 +106,7 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Azul</h5>
-      <h6> ৳2999 </h6>
+      <h6> ৳3920 </h6> <h6> ৳3920 </h6>
       <p class="card-text">Be an architect. Lay beautiful tiles on your wall and compete with your friends to be the best.</p>
       <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/azul.html'">Details</button>
       <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
@@ -117,9 +117,9 @@
 <div class="col-md-4">
   <div class="card">
     <div class="image-gallery">
-      <img id= "root-img" src="images/products/root/root img 1.jpg" class="product-img" />
-      <button class="prev">←</button>
-      <button class="next">→</button>
+      <img id= "everdell-img" src="images/products/everdell/everdell-1.jpg" class="product-img" />
+      <button class="prev" id="prev6">←</button>
+      <button class="next" id="next6">→</button>
     </div>
     <div class="card-body">
       <h5 class="card-title">Everdell</h5>
@@ -190,6 +190,20 @@
       brassImage.src = 'images/products/brass/'+images3[index3];
     };
 
+    //product 4 img change-  Harmonies
+    const images4 = ['harmonies-1.jpg', 'harmonies-2.jpg'];
+    let index4 = 0;
+    
+    const harmoniesImage = document.getElementById('harmonies-img');
+    document.getElementById('prev4').onclick = () => {
+      index4 = (index4 - 1 + images4.length) % images4.length;
+      harmoniesImage.src = 'images/products/harmonies/'+images4[index4];
+    };
+    document.getElementById('next4').onclick = () => {
+      index4 = (index4 + 1) % images4.length;
+      harmoniesImage.src = 'images/products/harmonies/'+images4[index4];
+    };
+
     //product 5 img change-  azul
     const images5 = ['azul-img-1.jpg', 'azul-img-2.jpg','azul-img-3.jpg', 'azul-img-4.jpg'];
     let index5 = 0;
@@ -202,6 +216,20 @@
     document.getElementById('next5').onclick = () => {
       index5 = (index5 + 1) % images5.length;
       azulImage.src = 'images/products/azul/'+images5[index5];
+    };
+
+    //product 6 img change-  everdell
+    const images6 = ['everdell-1.jpg', 'everdell-2.jpg'];
+    let index6 = 0;
+    
+    const everdellImage = document.getElementById('everdell-img');
+    document.getElementById('prev6').onclick = () => {
+      index6 = (index6 - 1 + images6.length) % images6.length;
+      everdellImage.src = 'images/products/everdell/'+images6[index6];
+    };
+    document.getElementById('next6').onclick = () => {
+      index6 = (index6 + 1) % images6.length;
+      everdellImage.src = 'images/products/everdell/'+images6[index6];
     };
     </script>
 </body>
