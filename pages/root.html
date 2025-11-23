@@ -2,126 +2,239 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Root Details</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Root – Command the Woodland, Claim Your Empire</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <style>
-    .product-gallery img {
+    body {
+      background-color: #f8f3e7;
+      color: #3a2a1a;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar-brand img {
+      height: 60px;
+      width: auto;
+    }
+
+    @media (max-width: 576px) {
+      .navbar-brand img {
+        height: 45px;
+      }
+    }
+
+    /* Header */
+    .product-header {
+      text-align: center;
+      padding: 30px 20px;
+      background:
+        linear-gradient(rgba(40, 25, 10, 0.6), rgba(40, 25, 10, 0.6)),
+        url('https://cf.geekdo-images.com/original/img/I8O9H4m6qJkD5fS9u7pjc99MvsY=/0x0/pic4254509.jpg') center/cover no-repeat;
+      color: #fdf7e6;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .product-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .product-header p {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 768px) {
+      .product-header h1 {
+        font-size: 2.5rem;
+      }
+      .product-header p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .product-header h1 {
+        font-size: 2rem;
+      }
+      .product-header {
+        padding: 20px 10px;
+      }
+    }
+
+    /* Carousel */
+    .carousel {
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .carousel-item img {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: opacity 0.3s;
+      border-radius: 10px;
     }
 
-    .product-gallery img:hover {
-      opacity: 0.85;
+    /* Description Section */
+    .description {
+      max-width: 850px;
+      margin: 50px auto;
+      background-color: #fff9ee;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .main-image {
-      width: 100%;
-      height: 400px;
-      object-fit: contain;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-      margin-bottom: 20px;
+    @media (max-width: 768px) {
+      .description {
+        padding: 25px;
+        margin: 30px 15px;
+      }
     }
 
+    @media (max-width: 480px) {
+      .description {
+        padding: 20px;
+        margin: 20px 10px;
+      }
+    }
+
+    .feature-list li {
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 480px) {
+      .feature-list li {
+        font-size: 1rem;
+      }
+    }
+
+    /* Buy button */
     .buy-btn {
-      padding: 14px 28px;
-      font-size: 18px;
-      border-radius: 6px;
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 35px auto 0;
+      padding: 15px 0;
+      font-size: 1.2rem;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #c46e2b, #e08b3c);
+      color: #fff;
+      border: none;
+      transition: 0.3s ease;
     }
 
-    .navbar {
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
-}
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #e08b3c, #f7a84a);
+      transform: scale(1.05);
+    }
 
-.navbar-brand img {
-  height: 70px; /* adjust as needed */
-  width: auto;
-  margin-right: 3px; /* reduces space between image and text */
-}
+    footer {
+      background-color: #f0e4ce;
+      text-align: center;
+      padding: 18px;
+      font-size: 0.9rem;
+    }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* ensures tight spacing */
-}
-
+    /* Footer responsive text */
+    @media (max-width: 480px) {
+      footer {
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
 
-<body class="bg-light">
+<body>
 
-   <!-- navbar -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 shadow-sm">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-bold fs-4" href="#">
-        <img src="../images/logo.png">Boardie </a>
+        <img src="../images/logo.png">Boardie
+      </a>
     </div>
   </nav>
 
-<div class="container py-5">
+  <!-- Header -->
+  <header class="product-header">
+    <h1>Root</h1>
+    <p>Battle for the Woodland • Asymmetric Strategy • 2–4 Players • 60–90 Minutes</p>
+  </header>
 
-   <!-- Main Image -->
-   <div class="row mb-4">
-    <div class="col-12">
-      <img id="mainImage" src="../images/products/root/root img 1.jpg" class="main-image" alt="Main Product Image">
+  <!-- Carousel -->
+  <div id="rootCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+        <img src="../images/products/root/root img 1.jpeg" alt="Root Box Art">
+      </div>
+
+      <div class="carousel-item">
+        <img src="../images/products/root/root img 2.jpeg" alt="Root Board Game Layout">
+      </div>
+
     </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#rootCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#rootCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
   </div>
 
-  <!-- Thumbnail Gallery -->
-  <div class="row product-gallery mb-5 g-3">
-    <div class="col-6 col-md-3">
-      <img src="../images/products/root/root img 1.jpg" onclick="changeImage(this.src)">
-    </div>
-    <div class="col-6 col-md-3">
-      <img src="../images/products/root/root-img-2.jpeg" onclick="changeImage(this.src)">
-    </div>
-    <div class="col-6 col-md-3">
-      <img src="../images/products/root/root-img-3.jpeg" onclick="changeImage(this.src)">
-    </div>
-    <div class="col-6 col-md-3">
-      <img src="../images/products/root/root-img-4.jpeg" onclick="changeImage(this.src)">
-    </div>
-  </div>
+  <!-- Description Section -->
+  <section class="description">
+    <h6>৳4750</h6>
 
-  <!-- Product Description -->
-  <div class="row">
-    <div class="col-md-8">
-      <h2 class="mb-3">Root</h2>
-      <p class="text-muted fs-5">৳ 2,499</p>
-      <p>
-        This game is playable by 2-6 players.Push your luck to build the best ecosystem in the jungle.
-      </p>
+    <h2>Game Overview</h2>
+    <p>
+      <strong>Root</strong> is a thrilling asymmetric strategy game where each faction 
+      offers a totally unique playstyle. Wage battles, form alliances, craft items, 
+      and struggle for control of the Woodland.
+    </p>
 
-      <ul>
-        <li>Play Time: 30-60 minutes</li>
-        <li>Recommended Age: 10+</li>
-        <li>Number of Players: 2-6</li>
-        <li>Designer: Uwe Rosenberg</li>
-      </ul>
+    <h3>Why You'll Love Root</h3>
+    <ul class="feature-list">
+      <li><strong>Deep asymmetry</strong> — every faction feels like its own game.</li>
+      <li><strong>Beautiful woodland aesthetic</strong> — a hand-drawn storybook world.</li>
+      <li><strong>Tactical battles & negotiation</strong> — allies today, enemies tomorrow.</li>
+      <li><strong>High replay value</strong> — no two games feel the same.</li>
+      <li><strong>Great for competitive players</strong> — outthink & outmaneuver.</li>
+    </ul>
 
-      <button class="btn btn-primary buy-btn" onclick="window.location.href='../order-form.html'">Buy Now</button>
-    </div>
-  </div>
+    <h3>What’s in the Box</h3>
+    <ul class="feature-list">
+      <li>Woodland map board</li>
+      <li>4 fully asymmetric factions</li>
+      <li>Wooden meeples & tokens</li>
+      <li>Faction boards, cards & rulebooks</li>
+    </ul>
 
-</div>
+    <h3>Quick How-to-Play</h3>
+    <p>
+      • Pick one of the 4 factions, each with its own rules.<br>
+      • Battle, craft, explore, and expand influence.<br>
+      • Use diplomacy, clever planning, or brute force.<br>
+      • First player to 30 victory points rules the forest.
+    </p>
 
-<footer class="text-center py-4">
-  <p class="mb-0">© Boardie. All rights reserved.</p>
-</footer>
+    <h3>Perfect For</h3>
+    <ul class="feature-list">
+      <li>Strategy enthusiasts</li>
+      <li>Groups who enjoy competitive depth</li>
+      <li>Fans of negotiation & clever tactics</li>
+      <li>Players seeking high replayability</li>
+    </ul>
 
-<script>
-  function changeImage(src) {
-    document.getElementById('mainImage').src = src;
-  }
-</script>
+    <button class="btn buy-btn" onclick="window.location.href='../order-form.html'">Buy Now</button>
+  </section>
 
+  <footer>
+    <p>© Boardie. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
