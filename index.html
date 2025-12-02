@@ -153,6 +153,25 @@
   </div>
 </div>
         <!--product 7 Ends-->
+
+         <!--product 8: Pandemic-->
+<div class="col-md-4">
+  <div class="card">
+    <div class="image-gallery">
+      <img id= "pandemic-img" src="images/products/pandemic/pandemic-1.jpg" class="product-img" />
+      <button class="prev" id="prev8">←</button>
+      <button class="next" id="next8">→</button>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Pandemic</h5>
+      <h6> ৳3220 </h6>
+      <p class="card-text">Team up with your friends to prevent the global pandemic. Save the world! </p>
+      <button class="btn btn-outline-primary w-100" style = "margin-bottom: 10px;" onclick="window.location.href='pages/pandemic.html'">Details</button>
+      <button class="btn btn-primary w-100" onclick="window.location.href='order-form.html'">Buy Now</button>
+    </div>
+  </div>
+</div>
+        <!--product 8 Ends-->
       </div>
     </div>
   </section>
@@ -267,6 +286,20 @@
     document.getElementById('next7').onclick = () => {
       index7 = (index7 + 1) % images7.length;
       virus1Image.src = 'images/products/virus1/'+images7[index7];
+    };
+
+    //product 8 img change-  Pandemic
+    const images8 = ['pandemic-1.jpg', 'pandemic-2.jpg'];
+    let index8 = 0;
+    
+    const pandemicImage = document.getElementById('pandemic-img');
+    document.getElementById('prev8').onclick = () => {
+      index8 = (index8 - 1 + images8.length) % images8.length;
+      pandemicImage.src = 'images/products/pandemic/'+images8[index8];
+    };
+    document.getElementById('next8').onclick = () => {
+      index8 = (index8 + 1) % images8.length;
+      pandemicImage.src = 'images/products/pandemic/'+images8[index8];
     };
     </script>
 </body>
